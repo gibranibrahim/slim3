@@ -15,11 +15,16 @@ class VisitController extends BaseController
         ]);
   }
 
-  public function getAdd($request, $response){
+  public function getAdd($request, $response)
+  {
+
     return $this->c->view->render($response, 'visits.add.twig');
+
   }
 
-  public function postAdd($request, $response){
+  public function postAdd($request, $response)
+  {
+
     $var = $request->getParams();
 
     $visit = Visit::create([
@@ -29,9 +34,11 @@ class VisitController extends BaseController
     ]);
 
     return $response->withRedirect($this->c->router->pathFor('visits.index'));
+    
   }
 
-  public function delete($request, $response, $args){
+  public function delete($request, $response, $args)
+  {
 
     if(Visit::destroy($args['id'])){
       return $response->withRedirect($this->c->router->pathFor('visits.index'));

@@ -10,6 +10,6 @@ $app->get('/visits/add', '\App\Controllers\VisitController:getAdd')->setName('vi
 $app->post('/visits/add', '\App\Controllers\VisitController:postAdd');
 $app->get('/visits/delete/{id}', '\App\Controllers\VisitController:delete')->setName('visits.delete');
 
-//Auth
-$app->get('/signup', '\App\Controllers\AuthController:getSignUp')->setName('signup');
-$app->post('/signup', '\App\Controllers\AuthController:postSignUp');
+//User
+$app->get('/users/signup', '\App\Controllers\UserController:getSignUp')->setName('signup');
+$app->post('/users/signup', '\App\Controllers\UserController:postSignUp');
