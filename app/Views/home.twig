@@ -1,0 +1,38 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+
+<div class="panel panel-default">
+
+  <a title="Add visit" href="{{ path_for('visits.add') }}" class="btn-success btn-sm pull-right panel-button" role="button">Add visit&nbsp;
+  <span class="glyphicon glyphicon-road" aria-hidden="true"></span></a>
+  <!-- Default panel contents -->
+  <div class="panel-heading">Upcoming visits
+
+  </div>
+
+  <!-- Table -->
+  <table class="table">
+    <tr>
+      <th>Id</th>
+      <th>Data</th>
+      <th>Local</th>
+      <th>Valor</th>
+      <th>Actions</th>
+    </tr>
+    {% for item in visits %}
+    <tr>
+      <td>{{ item.id }}</td>
+      <td>{{ item.data }}</td>
+      <td>{{ item.local }}</td>
+      <td>{{ item.valor }}</td>
+      <td>
+        <a title="Delete" href="{{ path_for('visits.delete', { 'id': item.id }) }}" class="btn-danger btn-sm" role="button">
+          <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+
+  {% endblock %}

@@ -1,0 +1,13 @@
+
+a:hover {
+ text-decoration: none;
+}
+
+body {
+  padding-bottom: 40px;
+}
+
+.panel-button{
+  margin-top: 6px;
+  margin-right: 10px;
+}
