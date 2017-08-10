@@ -1,5 +1,7 @@
 <?php
 
+use Respect\Validation\Validator as v;
+
 $container = $app->getContainer();
 
 //Container untuk View
@@ -33,4 +35,9 @@ $container['validator'] = function($container){
   return new App\Validation\Validator;
 };
 
+// Load Middlewares
 $app->add(new \App\Middleware\ValidationErrorsMiddleware($container));
+$app->add(new \App\Middleware\OldInputMiddleware($container));
+
+// Load custom rules
+v::with('App\\Validation\\Rules\\');

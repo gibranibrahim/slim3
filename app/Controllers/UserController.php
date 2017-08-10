@@ -22,7 +22,7 @@ class UserController extends BaseController
   {
 
     $validation = $this->c->validator->validate($request, [
-      'email' => v::noWhitespace()->notEmpty(),
+      'email' => v::noWhitespace()->notEmpty()->emailAvailable(),
       'name' => v::notEmpty()->alpha(),
       'password' => v::noWhitespace()->notEmpty(),
 
@@ -40,7 +40,7 @@ class UserController extends BaseController
       'password'=> password_hash($var['password'], PASSWORD_DEFAULT),
     ]);
 
-    return $response->withRedirect($this->c->router->pathFor('signup'));
+    return $response->withRedirect($this->c->router->pathFor('visits.index'));
 
   }
 }
