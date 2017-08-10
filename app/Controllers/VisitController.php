@@ -10,7 +10,7 @@ class VisitController extends BaseController
   public function index($request, $response)
   {
     $visits = Visit::all();
-    return $this->c->view->render($response, 'home.twig', [
+    return $this->c->view->render($response, 'Visits/index.php', [
             'visits' => $visits
         ]);
   }
@@ -34,7 +34,7 @@ class VisitController extends BaseController
     ]);
 
     return $response->withRedirect($this->c->router->pathFor('visits.index'));
-    
+
   }
 
   public function delete($request, $response, $args)
